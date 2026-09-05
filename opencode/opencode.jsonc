@@ -1,0 +1,82 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  // === MODELOS ===
+  "model": "opencode/big-pickle",
+  "small_model": "opencode/ling-3.0-flash-fin-free",
+
+  // === PERMISOS GLOBALES ===
+  // Por defecto allow all. Cada agente overridea según su necesidad.
+  "permission": {
+    "edit": "allow",
+    "bash": "allow",
+    "task": "allow"
+  },
+
+  // === COMPACTION ===
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 8000
+  },
+
+  // === SHARE ===
+  "share": "manual",
+
+  // === AUTOUPDATE ===
+  "autoupdate": "notify",
+
+  // === MCP SERVERS ===
+  "mcp": {
+    // GitHub MCP - DESACTIVADO por defecto (consume muchos tokens)
+    // Activar solo cuando el usuario lo pida explícitamente
+    "github": {
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp",
+      "enabled": false
+    },
+    // Context7 - Buscar documentación de frameworks
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true
+    },
+    // Grep by Vercel - Buscar ejemplos de código en GitHub
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "enabled": true
+    }
+  },
+
+  // === TOOLS GLOBALES ===
+  // GitHub MCP desactivado globalmente, se activa por agente si es necesario
+  "tools": {
+    "github_*": false
+  },
+
+  // === INSTRUCTIONS ===
+  "instructions": ["~/AGENTS.md"],
+
+  // === WATCHER ===
+  "watcher": {
+    "ignore": [
+      "node_modules/**",
+      "dist/**",
+      ".git/**",
+      "__pycache__/**",
+      "*.pyc",
+      ".venv/**",
+      "venv/**",
+      ".next/**",
+      "build/**",
+      "coverage/**"
+    ]
+  },
+
+  // === FORMATTER ===
+  "formatter": true,
+
+  // === LSP ===
+  "lsp": true
+}

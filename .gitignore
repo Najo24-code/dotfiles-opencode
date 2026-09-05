@@ -1,0 +1,5 @@
+# Copiar opencode.jsonc a ~/.config/opencode/
+# Copiar agents/*.md a ~/.config/opencode/agents/
+# Copiar skills/ a ~/.config/opencode/skills/
+# Copiar commands/*.md a ~/.config/opencode/commands/
+# Copiar AGENTS.md a ~/
